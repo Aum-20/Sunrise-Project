@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunrise Ventures</title>
+    <link rel="stylesheet" href="/contact.css">
+</head>
+<body>
+    <div class="nav">
+        <div class="logo">
+            <img src="https://sunriseventures.in/assets/images/logo.jpeg" alt="Sunrise Ventures Logo">
+        </div>
+        <div class="text">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about" id="aboutUsBtn">About Us</a></li>
+                <li><a href="/contact" id="contactUsBtn">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Background Image Container -->
+    <div class="bg_image">
+        <img src="https://sunriseventures.in/assets/images/bg/75478.jpg" alt="Background Image">
+    </div>
+
+    <div id="contactFormContainer">
+        <form id="contactUsForm" method="post" action="/contact">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phoneNo">Whatapp No.:</label>
+            <input type="phoneNo" id="phoneNo" name="phoneNo" required>
+
+            <label for="state">State:</label>
+            <input type="state" id="state" name="state" required>
+
+            <label for="msg">Msseage:</label>
+            <textarea type="msg" id="msg" name="msg" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
