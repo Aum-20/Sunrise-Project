@@ -33,3 +33,85 @@
     align-items: center;
     justify-content: center;
 }
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.nav {
+    background-color: #333;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.nav .logo img {
+    height: 50px;
+}
+
+.nav .text ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav .text ul li {
+    display: inline;
+    margin-left: 20px; /* Add some space between the items */
+}
+
+.nav .text ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.nav .text ul li a:hover {
+    background-color: #575757;
+    border-radius: 4px; /* Optional: Adds rounded corners to the hover effect */
+}
+
+#contactFormContainer {
+    margin-top: 20px;
+    display: none; /* Hidden by default */
+}
+
+.hidden {
+    display: none;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+}
+
+form label {
+    margin-top: 10px;
+}
+
+form input, form button {
+    margin-top: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px;
+}
+
+
