@@ -1,0 +1,30 @@
+const express = require("express"); // Import express
+const app = express(); // Create express app
+const cors = require("cors");
+const path = require("path");
+
+// Middlewares
+app.use(express.json({ limit: "16kb" }));
+app.use(express.urlencoded({ extended: true, limit: "16kb" }));
+app.use(express.static("public"));
+app.set("view engine", "ejs");
+app.set("views",path.join(__dirname,"../../Frontend/ejs-pages"));
+app.use(express.static(path.join(__dirname,"../../Frontend/CSS")));
+app.use(express.static(path.join(__dirname,"../../Frontend/images")));
+app.use(express.static(path.join(__dirname,"../../Frontend/JS")));
+
+app.use(
+    cors({
+        origin: process.env.CORS_ORIGIN,
+    })
+);
+
+// import routes
+const homeRoute = require("./routes/home.routes.js");
+const buyAndSellRoute = require("./routes/buyandsell.routes.js");
+
+// home routes declaration
+app.use("/api/v1/", homeRoute);
+app.use("/api/v1/buyandsell", buyAndSellRoute);
+
+module.exports = app; // Export app
