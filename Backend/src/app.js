@@ -21,10 +21,12 @@ app.use(
 
 // import routes
 const homeRoute = require("./routes/home.routes.js");
-const buyAndSellRoute = require("./routes/buyandsell.routes.js");
+const realEstate = require("./routes/realEstate.routes.js");
+const adminRoute = require("./routes/admin.routes.js");
 
 // home routes declaration
 app.use("/api/v1/", homeRoute);
-app.use("/api/v1/buyandsell", buyAndSellRoute);
+app.use("/api/v1/realEstate", realEstate);
+app.use("/api/v1/admin",adminRoute);
 
 module.exports = app; // Export app

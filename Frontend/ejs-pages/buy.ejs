@@ -2,7 +2,7 @@
 <html lang="en">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Buy Sunrise-Ventures</title>
+<title>Buy property</title>
 
 <link rel="stylesheet" href="/buy.css">
 
@@ -15,18 +15,18 @@
     <div class="overall">
         <div class="form-container">
             <h2>Property Inquiry Form</h2>
-            <form action="/api/v1/buyandsell/buy" method="POST">
+            <form action="/api/v1/realEstate/buy" method="POST">
                 <!-- Name -->
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
 
                 <!-- Whatsapp Number -->
                 <label for="whatsappNumber">Whatsapp Number:</label>
-                <input type="text" id="whatsappNumber" name="whatsappNumber" required>
+                <input type="text" id="whatsappNumber" name="whatsappNumber" required maxlength="10" minlength="10">
 
                 <!-- Mobile Number (If Different) -->
                 <label for="mobileNumber">Mobile Number (If Different):</label>
-                <input type="text" id="mobileNumber" name="mobileNumber">
+                <input type="text" id="mobileNumber" name="mobileNumber" maxlength="10" minlength="10">
 
                 <!-- E-mail ID -->
                 <label for="email">E-mail ID:</label>

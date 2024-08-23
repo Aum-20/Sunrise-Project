@@ -13,7 +13,7 @@ const buyerSchema = new Schema(
         },
         area: { type: String },
         budget: { type: String },
-        propertyType: { type: String },
+        propertyType: { type: String, enum:["plot", "agriculture-land", "apartment"] },
     },
     { timestamps: true }
 );
