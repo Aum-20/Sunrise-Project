@@ -2,6 +2,8 @@ const express = require("express"); // Import express
 const app = express(); // Create express app
 const cors = require("cors");
 const path = require("path");
+const session = require('express-session');
+require("dotenv").config(); 
 
 // Middlewares
 app.use(express.json({ limit: "16kb" }));
@@ -18,6 +20,13 @@ app.use(
         origin: process.env.CORS_ORIGIN,
     })
 );
+// console.log(process.env.SESSION_KEY);
+app.use(session({
+    secret: process.env.SESSION_KEY, // Change this to a secure key
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false } // Set to `true` if using HTTPS
+}));
 
 // import routes
 const homeRoute = require("./routes/home.routes.js");
@@ -27,6 +36,8 @@ const adminRoute = require("./routes/admin.routes.js");
 // home routes declaration
 app.use("/api/v1/", homeRoute);
 app.use("/api/v1/realEstate", realEstate);
+
+
 app.use("/api/v1/admin",adminRoute);
 
 module.exports = app; // Export app

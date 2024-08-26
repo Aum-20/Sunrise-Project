@@ -130,3 +130,29 @@ table tbody tr:hover td {
         min-width: 100%;
     }
 }
+
+/* Example CSS styles for WhatsApp button */
+.whatsapp-icon {
+    width: 24px; /* Adjust size as needed */
+    height: auto;
+}
+
+.table-container table th,
+.table-container table td {
+    text-align: center; /* Center align text and buttons */
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-container table th,
+.table-container table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.table-container table thead {
+    background-color: #f4f4f4;
+}

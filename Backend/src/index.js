@@ -1,8 +1,6 @@
 const app  = require("./app.js"); // Import app
 require("dotenv").config(); // Load environment variables from .env file
 
-
-
 const connectDB =  require("./db/index.js"); // Import connectDB function
 
 

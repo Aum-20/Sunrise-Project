@@ -16,14 +16,17 @@
             <input type="submit" value="Search" />
         </form>
         <!-- See All Button -->
-        <form action="/api/v1/admin/realEstate" method="GET" >
+        <form action="/api/v1/admin/realEstate" method="GET">
             <input type="submit" value="See All" />
+        </form>
+        <form action="/api/v1/admin/" method="GET">
+            <input type="submit" value="Back to admin page" />
         </form>
     </div>
 
     <div class="container">
         <!-- Buyers Table -->
-        <% if (buyers.length===0) { %>
+        <% if (buyers.length === 0) { %>
             <p>No buyers found</p>
         <% } else { %>
             <div class="table-container">
@@ -41,107 +44,79 @@
                             <th>Area</th>
                             <th>Budget</th>
                             <th>Property Type</th>
+                            <th>Contact</th> <!-- New column for WhatsApp button -->
                         </tr>
                     </thead>
                     <tbody>
-                        <% buyers.forEach((buyer, index)=> { %>
+                        <% buyers.forEach((buyer, index) => { %>
                             <tr>
+                                <td><%= index + 1 %></td>
+                                <td><%= buyer.createdAt.toLocaleString() %></td>
+                                <td><%= buyer.name %></td>
+                                <td><%= buyer.mobileNumber %></td>
+                                <td><%= buyer.whatsappNumber %></td>
+                                <td><%= buyer.location.state %></td>
+                                <td><%= buyer.location.city %></td>
+                                <td><%= buyer.area %></td>
+                                <td><%= buyer.budget %></td>
+                                <td><%= buyer.propertyType %></td>
                                 <td>
-                                    <%= index + 1 %>
-                                </td>
-                                <td>
-                                    <%= buyer.createdAt.toLocaleString() %>
-                                </td>
-                                <td>
-                                    <%= buyer.name %>
-                                </td>
-                                <td>
-                                    <%= buyer.mobileNumber %>
-                                </td>
-                                <td>
-                                    <%= buyer.whatsappNumber %>
-                                </td>
-                                <td>
-                                    <%= buyer.location.state %>
-                                </td>
-                                <td>
-                                    <%= buyer.location.city %>
-                                </td>
-                                <td>
-                                    <%= buyer.area %>
-                                </td>
-                                <td>
-                                    <%= buyer.budget %>
-                                </td>
-                                <td>
-                                    <%= buyer.propertyType %>
+                                    <a href="https://wa.me/<%= buyer.whatsappNumber %>" target="_blank">
+                                        <img src="/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
+                                    </a>
                                 </td>
                             </tr>
-                            <% }) %>
+                        <% }) %>
                     </tbody>
                 </table>
-
             </div>
         <% } %>
-        <% if (sellers.length===0) { %>
+
+        <% if (sellers.length === 0) { %>
             <p>No sellers found</p>
         <% } else { %>
-                <!-- Sellers Table -->
-                <div class="table-container">
-                    <h2>Sellers</h2>
-                    <table>
-                        <thead>
+            <!-- Sellers Table -->
+            <div class="table-container">
+                <h2>Sellers</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sl No</th>
+                            <th>Date/Time Registered</th>
+                            <th>Name</th>
+                            <th>Mobile No</th>
+                            <th>WhatsApp No</th>
+                            <th>State</th>
+                            <th>City</th>
+                            <th>Area</th>
+                            <th>Cost</th>
+                            <th>Property Type</th>
+                            <th>Contact</th> <!-- New column for WhatsApp button -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% sellers.forEach((seller, index) => { %>
                             <tr>
-                                <th>Sl No</th>
-                                <th>Date/Time Registered</th>
-                                <th>Name</th>
-                                <th>Mobile No</th>
-                                <th>WhatsApp No</th>
-                                <th>State</th>
-                                <th>City</th>
-                                <th>Area</th>
-                                <th>Cost</th>
-                                <th>Property Type</th>
+                                <td><%= index + 1 %></td>
+                                <td><%= seller.createdAt.toLocaleString() %></td>
+                                <td><%= seller.name %></td>
+                                <td><%= seller.mobileNumber %></td>
+                                <td><%= seller.whatsappNumber %></td>
+                                <td><%= seller.location.state %></td>
+                                <td><%= seller.location.city %></td>
+                                <td><%= seller.area %></td>
+                                <td><%= seller.cost %></td>
+                                <td><%= seller.propertyType %></td>
+                                <td>
+                                    <a href="https://wa.me/<%= seller.whatsappNumber %>" target="_blank">
+                                        <img src="/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
+                                    </a>
+                                </td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            <% sellers.forEach((seller, index)=> { %>
-                                <tr>
-                                    <td>
-                                        <%= index + 1 %>
-                                    </td>
-                                    <td>
-                                        <%= seller.createdAt.toLocaleString() %>
-                                    </td>
-                                    <td>
-                                        <%= seller.name %>
-                                    </td>
-                                    <td>
-                                        <%= seller.mobileNumber %>
-                                    </td>
-                                    <td>
-                                        <%= seller.whatsappNumber %>
-                                    </td>
-                                    <td>
-                                        <%= seller.location.state %>
-                                    </td>
-                                    <td>
-                                        <%= seller.location.city %>
-                                    </td>
-                                    <td>
-                                        <%= seller.area %>
-                                    </td>
-                                    <td>
-                                        <%= seller.cost %>
-                                    </td>
-                                    <td>
-                                        <%= seller.propertyType %>
-                                    </td>
-                                </tr>
-                                <% }) %>
-                        </tbody>
-                    </table>
-                </div>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
         <% } %>
     </div>
 
