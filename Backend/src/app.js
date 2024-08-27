@@ -36,8 +36,11 @@ const adminRoute = require("./routes/admin.routes.js");
 // home routes declaration
 app.use("/api/v1/", homeRoute);
 app.use("/api/v1/realEstate", realEstate);
-
-
 app.use("/api/v1/admin",adminRoute);
+
+
+app.use((req, res) => {
+    res.status(404).render('workInProgress.ejs');
+});
 
 module.exports = app; // Export app

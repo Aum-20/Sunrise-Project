@@ -43,10 +43,11 @@ const addBuyer = asyncHandler(async (req, res, next) => {
         propertyType,
     });
 
-    console.log("Buyer added successfully");
+    // console.log("Buyer added successfully");
 
     // Send a JSON response or redirect, depending on your API design
-    res.status(201).send("Thank you.. \n Our team will reach out to you!!!");
+    // res.status(201).send("Thank you.. \n Our team will reach out to you!!!");
+    res.render("thankYou.ejs");
 });
 
 const addSeller = asyncHandler(async (req, res) => {
@@ -86,7 +87,7 @@ const addSeller = asyncHandler(async (req, res) => {
     }
     
     // If mobileNumber is not provided, default to whatsappNumber
-    const finalMobileNumber = mobileNumber ? mobileNumber : whatsappNumber;
+    const finalMobileNumber = mobileNumber || whatsappNumber;
     
     // Create location object
     const location = {
@@ -100,7 +101,7 @@ const addSeller = asyncHandler(async (req, res) => {
     const seller = await Seller.create({
         name,
         whatsappNumber,
-        finalMobileNumber,
+        mobileNumber:finalMobileNumber,
         email,
         location,
         area,
@@ -109,8 +110,9 @@ const addSeller = asyncHandler(async (req, res) => {
     });
 
     // Send response
-    console.log("Seller added successfully");
-    res.status(201).send("Thank you.. \n Our team will reach out to you!!!");
+    // console.log("Seller added successfully");
+    // res.status(201).send("Thank you.. \n Our team will reach out to you!!!");
+    res.render("thankYou.ejs");
 });
 
 
