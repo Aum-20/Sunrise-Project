@@ -36,16 +36,16 @@ const loginUser = asyncHandler(async (req, res) => {
     // Set session user
     req.session.user = user;
     // console.log(req.session.user);
-    res.redirect('/api/v1/admin');
+    res.redirect('/admin');
 });
 
 const logout = (req, res) => {
     // console.log("Inside logout");
     req.session.destroy(err => {
         if (err) {
-            return res.redirect('/api/v1/admin');
+            return res.redirect('/admin');
         }
-        res.redirect('/api/v1/home'); // Redirect to login after logout
+        res.redirect('/home'); // Redirect to login after logout
     });
 };
 
@@ -66,7 +66,7 @@ const search = asyncHandler(async (req, res) => {
     const query = req.query.key;
     // console.log(query);
     if (query === undefined || query === "") {
-        return res.redirect("/api/v1/admin/realEstate");
+        return res.redirect("/admin/realEstate");
     }
 
     // Regular expressions to match fields that start with the query
@@ -147,7 +147,7 @@ const deleteBuyer = asyncHandler(async (req, res) => {
         throw new ApiError(404, 'Buyer not found');
     }
 
-    res.status(200).redirect('/api/v1/admin/realEstate');
+    res.status(200).redirect('/admin/realEstate');
 });
 
 const deleteSeller = asyncHandler(async (req, res) => {
@@ -159,7 +159,7 @@ const deleteSeller = asyncHandler(async (req, res) => {
         throw new ApiError(404, 'Seller not found');
     }
 
-    res.status(200).redirect('/api/v1/admin/realEstate');
+    res.status(200).redirect('/admin/realEstate');
 });
 
 module.exports = {

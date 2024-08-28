@@ -34,9 +34,9 @@ const realEstate = require("./routes/realEstate.routes.js");
 const adminRoute = require("./routes/admin.routes.js");
 
 // home routes declaration
-app.use("/api/v1/", homeRoute);
-app.use("/api/v1/realEstate", realEstate);
-app.use("/api/v1/admin",adminRoute);
+app.use("/", homeRoute);
+app.use("/realEstate", realEstate);
+app.use("/admin",adminRoute);
 
 
 app.use((req, res) => {
