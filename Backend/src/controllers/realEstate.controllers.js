@@ -47,7 +47,7 @@ const addBuyer = asyncHandler(async (req, res, next) => {
 
     // Send a JSON response or redirect, depending on your API design
     // res.status(201).send("Thank you.. \n Our team will reach out to you!!!");
-    res.render("thankYou.ejs");
+    res.render("thankyou.ejs");
 });
 
 const addSeller = asyncHandler(async (req, res) => {
@@ -112,7 +112,7 @@ const addSeller = asyncHandler(async (req, res) => {
     // Send response
     // console.log("Seller added successfully");
     // res.status(201).send("Thank you.. \n Our team will reach out to you!!!");
-    res.render("thankYou.ejs");
+    res.render("thankyou.ejs");
 });
 
 
