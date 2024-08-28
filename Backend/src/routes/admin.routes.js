@@ -8,7 +8,9 @@ const {
     search,
     loginUser,
     logout,
-    addUser
+    addUser,
+    deleteBuyer,
+    deleteSeller,
 } = require("../controllers/admin.controllers.js");
 
 
@@ -24,5 +26,7 @@ router.route("/").get(isAuthenticated, admin);
 router.route("/realEstate").get(isAuthenticated,realEstate);
 router.route("/realEstate/search").get(isAuthenticated,search);
 router.route("/addUser").post(isAuthenticated,addUser);
+router.route("/realEstate/buyer/:id").post(deleteBuyer);
+router.route("/realEstate/seller/:id").post(deleteSeller);
 
 module.exports = router;

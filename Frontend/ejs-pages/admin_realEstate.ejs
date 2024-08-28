@@ -45,6 +45,7 @@
                             <th>Budget</th>
                             <th>Property Type</th>
                             <th>Contact</th> <!-- New column for WhatsApp button -->
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -64,6 +65,11 @@
                                     <a href="https://wa.me/<%= buyer.whatsappNumber %>" target="_blank">
                                         <img src="/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
                                     </a>
+                                </td>
+                                <td>
+                                    <form action="/api/v1/admin/realEstate/buyer/<%= buyer._id %>" method="POST">
+                                        <button type="submit"><img src="/icons8-delete-24.png" alt="DELETE"></button>
+                                    </form>
                                 </td>
                             </tr>
                         <% }) %>
@@ -93,6 +99,7 @@
                             <th>Cost</th>
                             <th>Property Type</th>
                             <th>Contact</th> <!-- New column for WhatsApp button -->
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -113,6 +120,11 @@
                                     <a href="https://wa.me/<%= seller.whatsappNumber %>" target="_blank">
                                         <img src="/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
                                     </a>
+                                </td>
+                                <td>
+                                    <form action="/api/v1/admin/realEstate/seller/<%= seller._id %>" method="POST">
+                                        <button type="submit"><img src="/icons8-delete-24.png" alt="DELETE"></button>
+                                    </form>
                                 </td>
                             </tr>
                         <% }) %>

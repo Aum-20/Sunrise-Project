@@ -138,6 +138,30 @@ const addUser = asyncHandler(async (req, res) => {
     );
 });
 
+const deleteBuyer = asyncHandler(async (req, res) => {
+    const { id } = req.params;
+
+    const buyer = await Buyer.findByIdAndDelete(id);
+
+    if(!buyer) {
+        throw new ApiError(404, 'Buyer not found');
+    }
+
+    res.status(200).redirect('/api/v1/admin/realEstate');
+});
+
+const deleteSeller = asyncHandler(async (req, res) => {
+    const { id } = req.params;
+
+    const seller = await Seller.findByIdAndDelete(id);
+
+    if(!seller) {
+        throw new ApiError(404, 'Seller not found');
+    }
+
+    res.status(200).redirect('/api/v1/admin/realEstate');
+});
+
 module.exports = {
     admin,
     signIn,
@@ -146,4 +170,6 @@ module.exports = {
     loginUser,
     logout,
     addUser,
+    deleteBuyer,
+    deleteSeller,
 };
