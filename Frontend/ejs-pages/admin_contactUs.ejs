@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Real Estate Sunrise-Ventures</title>
+    <link rel="stylesheet" href="/adminPanelRealEstate.css">
+</head>
+
+<body>
+
+    <div class="search-container">
+        <form action="/admin/contactUs/search" method="GET">
+            <input type="text" name="key" placeholder="Search by name, mobile number, state, etc." />
+            <input type="submit" value="Search" />
+        </form>
+        <!-- See All Button -->
+        <form action="/admin/contactUs" method="GET">
+            <input type="submit" value="See All" />
+        </form>
+        <form action="/admin/" method="GET">
+            <input type="submit" value="Back to admin page" />
+        </form>
+    </div>
+
+    <div class="container">
+        <!-- Buyers Table -->
+        <% if (data.length === 0) { %>
+            <p>No data found</p>
+        <% } else { %>
+            <div class="table-container">
+                <h2>Contact Us Data</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sr No</th>
+                            <th>Date/Time Registered</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone No</th>
+                            <th>Message </th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% data.forEach((d, index) => { %>
+                            <tr>
+                                <td><%= index + 1 %></td>
+                                <td><%= d.createdAt.toLocaleString() %></td>
+                                <td><%= d.name %></td>
+                                <td><%= d.email%></td>
+                                <td><%= d.phoneNo %></td>
+                                <td><%= d.msg %></td>
+                                <td>
+                                    <form action="/admin/contactUs/<%= d._id %>" method="POST">
+                                        <button type="submit"><img src="/icons8-delete-24.png" alt="DELETE"></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        <% } %>
+
+
+
+</body>
+
+</html>

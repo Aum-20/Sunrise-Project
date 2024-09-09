@@ -7,7 +7,7 @@ body {
 }
 
 h2 {
-    color: #495057;
+    color: white;
     font-size: 1.5em;
     margin-bottom: 15px;
     border-bottom: 2px solid #dee2e6;
@@ -17,6 +17,7 @@ h2 {
 /* Container Styles */
 .container {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     flex-wrap: wrap;
     margin-top: 20px;
@@ -79,7 +80,6 @@ h2 {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
 }
 
 table th, table td {
@@ -106,12 +106,14 @@ table tbody tr:hover td {
     background-color: #e2e6ea;
 }
 
+/* WhatsApp Icon */
+.whatsapp-icon {
+    width: 24px;
+    height: auto;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
-    .table-container {
-        width: 100%;
-    }
-
     .search-container {
         flex-direction: column;
         align-items: stretch;
@@ -126,33 +128,35 @@ table tbody tr:hover td {
         width: 100%;
     }
 
-    table {
-        min-width: 100%;
+    .table-container {
+        overflow-x: scroll;
+    }
+
+    table th, table td {
+        white-space: nowrap;
     }
 }
 
-/* Example CSS styles for WhatsApp button */
-.whatsapp-icon {
-    width: 24px; /* Adjust size as needed */
-    height: auto;
-}
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.2em;
+    }
 
-.table-container table th,
-.table-container table td {
-    text-align: center; /* Center align text and buttons */
-}
+    .search-container input[type="text"] {
+        width: 100%;
+        padding: 8px;
+    }
 
-.table-container table {
-    width: 100%;
-    border-collapse: collapse;
-}
+    .search-container input[type="submit"] {
+        padding: 8px 16px;
+    }
 
-.table-container table th,
-.table-container table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
+    .table-container {
+        padding: 10px;
+    }
 
-.table-container table thead {
-    background-color: #f4f4f4;
+    table th, table td {
+        padding: 8px;
+        font-size: 0.8em;
+    }
 }

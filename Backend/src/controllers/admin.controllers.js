@@ -4,7 +4,7 @@ const Seller = require("../models/realEstate_seller.models.js");
 const User = require("../models/user.models.js");
 const ApiError = require("../utils/ApiError.js");
 const ApiResponse = require("../utils/ApiResponse.js");
-
+const ContactUs = require("../models/contactUs.models.js");
 
 const admin = (req, res) => {
     res.render("admin.ejs");
@@ -55,8 +55,8 @@ const realEstate = asyncHandler(async (req, res) => {
     // we have to send all buyer detials
     // we have to send all seller details
 
-    const buyers = await Buyer.find();
-    const sellers = await Seller.find();
+    const buyers = await Buyer.find().sort({ createdAt: -1 });
+    const sellers = await Seller.find().sort({ createdAt: -1 });
 
     res.render("admin_realEstate.ejs", { buyers, sellers });
 });
@@ -71,7 +71,7 @@ const search = asyncHandler(async (req, res) => {
 
     // Regular expressions to match fields that start with the query
     const regex = new RegExp("^" + query, "i");
-
+    // console.log(regex);
     const buyers = await Buyer.find({
         $or: [
             { name: regex },
@@ -162,6 +162,46 @@ const deleteSeller = asyncHandler(async (req, res) => {
     res.status(200).redirect('/admin/realEstate');
 });
 
+const contactUsData = asyncHandler(async (req, res) => {
+    data = await ContactUs.find().sort({ createdAt: -1 });
+    res.render("admin_contactUs.ejs", { data });
+});
+
+const deleteContactUsData = asyncHandler(async (req, res) => {
+    const { id } = req.params;
+
+    const contactUsData = await ContactUs.findByIdAndDelete(id);
+
+    if(!contactUsData) {
+        throw new ApiError(404, 'Contact Us data not found');
+    }
+
+    res.status(200).redirect('/admin/contactUs');
+});
+
+const searchContactUsData = asyncHandler(async (req, res) => {
+    const query = req.query.key;
+    // console.log(query);
+    if (query === undefined || query === "") {
+        return res.redirect("/admin/contactUs");
+    }
+
+    // Regular expressions to match fields that start with the query
+    const regex = new RegExp("^" + query, "i");
+    console.log(regex);
+    const data = await ContactUs.find({
+        $or: [
+            { name: regex },
+            { email: regex },
+            { phoneNo: regex },
+            { state: regex },
+            { msg: regex },
+        ],
+    });
+
+    res.render("admin_contactUs.ejs", { data });
+});
+
 module.exports = {
     admin,
     signIn,
@@ -172,4 +212,7 @@ module.exports = {
     addUser,
     deleteBuyer,
     deleteSeller,
+    contactUsData,
+    deleteContactUsData,
+    searchContactUsData
 };

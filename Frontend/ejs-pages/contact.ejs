@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact-Sunrise Ventures</title>
     <link rel="stylesheet" href="/contact.css">
 </head>
+
 <body>
     <div class="nav">
         <div class="logo">
@@ -26,7 +28,7 @@
     </div>
 
     <div id="contactFormContainer">
-        <form id="contactUsForm" method="post" action="/contact">
+        <form id="contactUsForm" method="post" action="/workInProgress">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
 
@@ -34,7 +36,7 @@
             <input type="email" id="email" name="email" required>
 
             <label for="phoneNo">Whatapp No.:</label>
-            <input type="phoneNo" id="phoneNo" name="phoneNo" required>
+            <input type="phoneNo" id="phoneNo" name="phoneNo" min="10" max="10" required>
 
             <label for="state">State:</label>
             <input type="state" id="state" name="state" required>
@@ -46,4 +48,5 @@
         </form>
     </div>
 </body>
+
 </html>

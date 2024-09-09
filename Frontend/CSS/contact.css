@@ -10,13 +10,12 @@ body {
 }
 
 .nav {
-    height: 60px;
     background-color: white;
-    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
+    color: white;
 }
 
 .nav .logo img {
@@ -25,28 +24,27 @@ body {
 }
 
 .nav .text ul {
-    list-style-type: none;
+    list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
+    align-items: center;
 }
 
 .nav .text ul li {
-    display: inline;
-    margin-left: 20px; /* Add some space between the items */
+    margin-left: 20px;
 }
 
 .nav .text ul li a {
-    display: block;
     color: black;
-    text-align: center;
-    padding: 14px 20px;
     text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
 .nav .text ul li a:hover {
     background-color: #575757;
-    border-radius: 4px; /* Optional: Adds rounded corners to the hover effect */
 }
 
 .bg_image {
@@ -118,4 +116,79 @@ form button {
 
 form button:hover {
     background-color: #575757;
+}
+
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav .text ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav .text ul li {
+        margin: 10px 0;
+    }
+
+    #contactFormContainer {
+        max-width: 100%; /* Full width on tablets */
+        padding: 15px;
+        margin: 30px auto;
+    }
+
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="phoneNo"],
+    form input[type="state"],
+    form textarea {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    form button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .nav .logo img {
+        height: 60px; /* Reduce logo size on mobile */
+    }
+
+    .nav .text ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav .text ul li {
+        margin: 5px 0;
+    }
+
+    #contactFormContainer {
+        max-width: 90%; /* Full width with some padding */
+        padding: 10px;
+    }
+
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="phoneNo"],
+    form input[type="state"],
+    form textarea {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    form button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    form textarea {
+        height: 80px; /* Adjust textarea height on smaller screens */
+    }
 }

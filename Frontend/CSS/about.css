@@ -9,13 +9,12 @@ body {
 }
 
 .nav {
-    height: 60px;
-    background-color: white;
-    overflow: hidden;
+    background-color: black;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
+    color: white;
 }
 
 .nav .logo img {
@@ -24,28 +23,27 @@ body {
 }
 
 .nav .text ul {
-    list-style-type: none;
+    list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
+    align-items: center;
 }
 
 .nav .text ul li {
-    display: inline;
-    margin-left: 20px; /* Add some space between the items */
+    margin-left: 20px;
 }
 
 .nav .text ul li a {
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 20px;
+    color: white;
     text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
 .nav .text ul li a:hover {
     background-color: #575757;
-    border-radius: 4px; /* Optional: Adds rounded corners to the hover effect */
 }
 
 .about-container {
@@ -67,6 +65,7 @@ body {
 
 .contact-info p {
     margin: 5px 0;
+    text-align: center;
 }
 
 .contact-info a {
@@ -77,4 +76,60 @@ body {
 
 .contact-info a:hover {
     color: #575757;
+}
+
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .nav .text ul {
+        flex-direction: column;
+    }
+    
+    .nav .text ul li {
+        margin: 10px 0;
+    }
+
+    .nav .logo img {
+        height: 60px;
+    }
+
+    .about-container {
+        margin: 30px auto;
+        padding: 15px;
+    }
+
+    .about-container h1, .about-container h2 {
+        font-size: 1.5em;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .nav {
+        padding: 10px;
+    }
+
+    .nav .logo img {
+        height: 50px;
+    }
+
+    .nav .text ul li a {
+        padding: 8px 10px;
+    }
+
+    .about-container {
+        margin: 20px auto;
+        padding: 10px;
+    }
+
+    .about-container h1, .about-container h2 {
+        font-size: 1.2em;
+    }
+
+    .contact-info p {
+        font-size: 0.9em;
+    }
 }
