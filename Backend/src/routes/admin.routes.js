@@ -27,7 +27,7 @@ router.route("/logout").post(logout);
 router.route("/").get(isAuthenticated, admin);
 router.route("/realEstate").get(isAuthenticated,realEstate);
 router.route("/realEstate/search").get(isAuthenticated,search);
-router.route("/addUser").post(isAuthenticated,addUser);
+router.route("/addUser").post(addUser);
 router.route("/realEstate/buyer/:id").post(isAuthenticated,deleteBuyer);
 router.route("/realEstate/seller/:id").post(isAuthenticated,deleteSeller);
 

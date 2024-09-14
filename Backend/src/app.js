@@ -43,7 +43,7 @@ app.use("/agriculture", workInProgress);
 app.use("/drone", workInProgress);
 app.use("/global-opportunities", workInProgress);
 app.use("/alkine-water", workInProgress);
-app.use("farm-management", workInProgress);
+app.use("/farm-management", workInProgress);
 app.use("/workInProgress", workInProgress);
 app.use("/admin", adminRoute);
 
